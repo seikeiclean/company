@@ -81,6 +81,168 @@
       .company-page-grid { grid-template-columns: 1fr; gap: 40px; }
       .contact-options { grid-template-columns: 1fr; }
     }
+
+    /* ── グループ事業セクション ── */
+    .group-section { background: #f8f9fb; }
+
+    .group-synergy-box {
+      background: linear-gradient(135deg,#fff8f3,#ffffff);
+      border-left: 4px solid var(--orange);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 24px;
+      margin-bottom: 40px;
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: var(--text);
+    }
+
+    /* 持株会社カード */
+    .group-hd-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #e8eaee;
+      border: 1px solid #c8ccd4;
+      border-radius: 14px;
+      padding: 18px 28px;
+      margin-bottom: 32px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .group-hd-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .group-hd-logo {
+      max-height: 44px;
+      max-width: 150px;
+      object-fit: contain;
+    }
+    .group-hd-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #222;
+    }
+    .group-hd-badge {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #bcc0c8;
+      border-radius: 50px;
+      padding: 4px 16px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    /* カテゴリ行 */
+    .group-row {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 48px; /* 行間を広げてラベルが前行カードに被らないようにする */
+    }
+    .group-row:last-of-type { margin-bottom: 0; }
+    .group-row.cols-3 { grid-template-columns: repeat(3,1fr); }
+    .group-row.cols-2 { grid-template-columns: repeat(2,1fr); }
+    .group-row.cols-1 { grid-template-columns: 1fr; }
+
+    /* 各列：ラベル＋カードを縦に並べ、カードが残り高さを埋める */
+    .group-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .group-shared-label {
+      font-size: 0.72rem;
+      color: #999;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .group-col-label {
+      font-size: 0.72rem;
+      color: #999;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 7px;
+      /* 2行分で高さを統一 → 同行カードの頭が必ず揃う */
+      min-height: 2.6em;
+      line-height: 1.3;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    /* 各会社カード：flex:1 で列内の残り高さをすべて使う */
+    .group-co-card {
+      background: #fff;
+      border: 1px solid #e4e7ec;
+      border-radius: 12px;
+      padding: 20px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      flex: 1; /* ← height:100% ではなく flex:1 で確実に高さを揃える */
+      box-sizing: border-box;
+      transition: box-shadow 0.2s;
+    }
+    .group-co-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.09); }
+    .group-co-card.is-seikei {
+      border-color: var(--orange-lighter);
+      background: linear-gradient(135deg,#fff9f5,#fff);
+    }
+    .group-co-logo-wrap {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .group-co-logo-wrap img {
+      max-height: 68px;
+      max-width: 150px;
+      object-fit: contain;
+    }
+    .group-co-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #222;
+    }
+    .group-co-sub {
+      font-size: 0.7rem;
+      color: #aaa;
+      line-height: 1.4;
+    }
+
+    /* リンクカード共通 */
+    a.group-co-card {
+      text-decoration: none;
+      color: inherit;
+    }
+    a.group-co-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.13);
+      border-color: var(--orange-lighter);
+    }
+    a.group-hd-card {
+      text-decoration: none;
+      color: inherit;
+    }
+    a.group-hd-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      border-color: #a0a4ae;
+    }
+
+    @media (max-width: 680px) {
+      .group-row.cols-3 { grid-template-columns: repeat(2,1fr); }
+      .group-hd-card { padding: 14px 16px; }
+    }
+    @media (max-width: 400px) {
+      .group-row.cols-3,
+      .group-row.cols-2 { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -172,6 +334,148 @@
         <td>平日 8:00〜18:00</td>
       </tr>
     </table>
+  </div>
+</section>
+
+<!-- ======================================================
+     グループ事業
+     ====================================================== -->
+<section class="section group-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">GROUP BUSINESS</p>
+    <h2 class="section-title">グループ事業</h2>
+
+    <!-- シナジー文 -->
+    <div class="group-synergy-box">
+      廃棄物の適正処理・不用品回収を担う西恵クリーンは、<strong>BASE CUBE HDグループの一員として多様な事業会社と連携</strong>しています。人材グループから優秀なドライバー・作業スタッフを安定確保することで機動力ある現場体制を実現し、保育・飲食・ゴルフスクールなど地域に根ざした多彩なグループ事業とともに、皆様の暮らしを幅広くサポートします。
+    </div>
+
+    <!-- 持株会社 -->
+    <a class="group-hd-card" href="https://basecube.jp/" target="_blank" rel="noopener noreferrer">
+      <div class="group-hd-left">
+        <img src="img/logo_BASECUBE.png" alt="株式会社 BASE CUBE HD" class="group-hd-logo">
+        <div class="group-hd-name">株式会社 BASE CUBE HD<span style="font-size:0.72rem;font-weight:400;color:#666;margin-left:8px;">（ベースキューブホールディングス）</span></div>
+      </div>
+      <span class="group-hd-badge">持株会社</span>
+    </a>
+
+    <!-- 人材派遣 / 人材紹介 / 採用支援 -->
+    <div class="group-shared-label" style="margin-top:0;">人材派遣 ／ 人材紹介 ／ 採用支援</div>
+    <div class="group-row cols-3">
+      <div class="group-col">
+        <a class="group-co-card" href="https://7cube.co.jp/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_sevencube.jpg" alt="セブンキューブ"></div>
+          <div class="group-co-name">株式会社 セブンキューブ</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <a class="group-co-card" href="https://saiyo.page/329315" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_arclink.png" alt="アークリンク" style="max-height:105px;max-width:185px;"></div>
+          <div class="group-co-name">株式会社 アークリンク</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <a class="group-co-card" href="https://avanza-inc.com/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_avanza.png" alt="アバンザ" style="max-height:105px;max-width:185px;"></div>
+          <div class="group-co-name">株式会社 アバンザ</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- イベント運営 / 企画制作 -->
+    <div class="group-row cols-2">
+      <div class="group-col">
+        <div class="group-col-label">イベント運営</div>
+        <a class="group-co-card" href="https://8-cube.co.jp/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_eightcube.jpg" alt="エイトキューブ" style="max-height:105px;max-width:185px;"></div>
+          <div class="group-co-name">株式会社 エイトキューブ</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <div class="group-col-label">企画制作</div>
+        <div class="group-co-card">
+          <div class="group-co-logo-wrap" style="background:#f2f4f7;border-radius:8px;font-size:0.78rem;font-weight:700;color:#888;">Cre-EIGHT（準備中）</div>
+          <div class="group-co-name">株式会社 Cre-EIGHT</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 警備業 / 廃棄物処理 / 不動産 -->
+    <div class="group-row cols-3">
+      <div class="group-col">
+        <div class="group-col-label">警備業</div>
+        <a class="group-co-card" href="https://www.9cube-keibi.com/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_ninecube.png" alt="ナインキューブ警備" style="max-height:105px;max-width:185px;"></div>
+          <div class="group-co-name">株式会社 ナインキューブ警備</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <div class="group-col-label">廃棄物処理・不用品回収</div>
+        <div class="group-co-card is-seikei">
+          <div class="group-co-logo-wrap"><img src="西恵クリーンロゴ3.png" alt="西恵クリーン"></div>
+          <div class="group-co-name">有限会社 西恵クリーン</div>
+        </div>
+      </div>
+      <div class="group-col">
+        <div class="group-col-label">不動産事業</div>
+        <a class="group-co-card" href="https://basecube.jp/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_basecube.jpg" alt="BASE CUBE HD" style="max-height:130px;max-width:210px;"></div>
+          <div class="group-co-name">株式会社 BASE CUBE HD</div>
+          <div class="group-co-sub">宅地建物取引業免許取得</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 保育 / アート / ゴルフ -->
+    <div class="group-row cols-3">
+      <div class="group-col">
+        <div class="group-col-label">保育事業</div>
+        <a class="group-co-card" href="https://peraichi.com/landing_pages/view/nanairohoikuen/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_nanairohoikuen.png" alt="なないろ保育園"></div>
+          <div class="group-co-name">なないろ保育園</div>
+          <div class="group-co-sub">京橋園・天王寺園</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <div class="group-col-label">アートスタジオ・絵画販売</div>
+        <a class="group-co-card" href="https://www.instagram.com/botai_artstudio/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_BOTAI STUDIO.JPG" alt="BOTAI STUDIO"></div>
+          <div class="group-co-name">株式会社 BOTAI</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <div class="group-col-label">インドアゴルフスクール</div>
+        <a class="group-co-card" href="https://ekimaegolf-school.com/uehonmachi/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_ekimaegolf.png" alt="駅前ゴルフスクール" style="max-height:105px;max-width:185px;"></div>
+          <div class="group-co-name">駅前ゴルフスクール</div>
+          <div class="group-co-sub">西長堀・上本町</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 飲食事業 -->
+    <div class="group-shared-label" style="margin-top:0;">飲食事業</div>
+    <div class="group-row cols-3" style="margin-bottom:0;">
+      <div class="group-col">
+        <a class="group-co-card" href="https://www.instagram.com/chotto_bar_/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_chottobar.png" alt="Chotto Bar"></div>
+          <div class="group-co-name">Chotto Bar</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <a class="group-co-card" href="https://www.instagram.com/bar__marimo/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_marimo.png" alt="BAR MARIMO"></div>
+          <div class="group-co-name">BAR MARIMO</div>
+        </a>
+      </div>
+      <div class="group-col">
+        <a class="group-co-card" href="https://gbase-omimaiko.com/" target="_blank" rel="noopener noreferrer">
+          <div class="group-co-logo-wrap"><img src="img/logo_G-BASE.png" alt="G-BASE" style="max-height:105px;max-width:185px;"></div>
+          <div class="group-co-name">琵琶湖ビーチサイドキャンプ G-BASE</div>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
