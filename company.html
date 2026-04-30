@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会社概要・お問い合わせ | 有限会社西恵クリーン</title>
+  <meta name="description" content="有限会社西恵クリーンの会社概要、所在地、許可番号、お問い合わせフォームをご確認いただけます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .company-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .company-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .company-table tr { border-bottom: 1px solid var(--gray); }
+    .company-table tr:last-child { border-bottom: none; }
+    .company-table th {
+      width: 38%;
+      padding: 14px 16px 14px 0;
+      text-align: left;
+      font-weight: 700;
+      color: var(--orange-darker);
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    .company-table td {
+      padding: 14px 0;
+      line-height: 1.75;
+      vertical-align: top;
+    }
+    .permit-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--off-white);
+      border: 1px solid var(--orange-lighter);
+      color: var(--orange-darker);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin: 3px 0;
+    }
+    .contact-section { background: var(--gray-light); }
+    .contact-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .contact-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .contact-option {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+    .contact-option-icon { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+    .contact-option h3 { font-size: 1rem; margin-bottom: 8px; }
+    .contact-option p { font-size: 0.82rem; color: var(--text-light); margin-bottom: 14px; }
+    .contact-tel-big {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--orange-darker);
+      letter-spacing: 0.04em;
+    }
+    .contact-tel-big a { color: inherit; }
+    @media (max-width: 768px) {
+      .company-page-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html">
+    <img src="西恵クリーンロゴ3.png" alt="有限会社西恵クリーン" class="header-logo">
+  </a>
+  <nav class="nav">
+    <a href="services.html" class="nav-link">事業内容</a>
+    <a href="flow-price.html" class="nav-link">料金・流れ</a>
+    <a href="company.html" class="nav-link" style="color:var(--orange);">会社概要</a>
+    <a href="faq.html" class="nav-link">FAQ</a>
+    <a href="#contact" class="nav-link nav-cta">お問い合わせ</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="services.html" class="mobile-nav-link">事業内容</a>
+  <a href="flow-price.html" class="mobile-nav-link">サービスの流れ＆料金表</a>
+  <a href="company.html" class="mobile-nav-link">会社概要</a>
+  <a href="#contact" class="mobile-nav-link">お問い合わせ</a>
+  <a href="faq.html" class="mobile-nav-link">よくある質問</a>
+  <a href="privacy.html" class="mobile-nav-link">個人情報保護方針</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>会社概要</h1>
+  <p>有限会社西恵クリーンについてご紹介します</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a> › <span>会社概要</span>
+  </div>
+</div>
+
+<!-- ======================================================
+     会社概要
+     ====================================================== -->
+<section class="section company">
+  <div class="section-inner">
+    <p class="section-eyebrow">ABOUT US</p>
+    <h2 class="section-title">会社概要</h2>
+    <p class="section-lead">大阪府富田林市を拠点に、大阪・兵庫を中心として産業廃棄物の適正処理から生活のお片付けまで幅広くサポートしております。</p>
+
+    <table class="company-table">
+      <tr>
+        <th>会社名</th>
+        <td>有限会社西恵クリーン</td>
+      </tr>
+      <tr>
+        <th>設立</th>
+        <td>平成16年（2004年）11月9日</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>〒584-0046<br>大阪府富田林市東板持町1丁目22-5</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><a href="tel:0721697458" style="color:var(--orange-dark);font-weight:700;">0721-69-7458</a></td>
+      </tr>
+      <tr>
+        <th>FAX番号</th>
+        <td>0721-69-7459</td>
+      </tr>
+      <tr>
+        <th>対応エリア</th>
+        <td>大阪府・兵庫県を中心に対応<br><small style="color:var(--text-light);">※ 遠方の場合は別途ご相談ください</small></td>
+      </tr>
+      <tr>
+        <th>産廃許可番号</th>
+        <td>
+          <div class="permit-tag">🏛️ （大阪府知事許可）第02710116316号</div><br>
+          <div class="permit-tag">🏛️ （兵庫県知事許可）第02803116316号</div>
+        </td>
+      </tr>
+      <tr>
+        <th>その他許可</th>
+        <td>
+          一般廃棄物収集運搬許可業者 提携済み<br>
+          古物商許可証 大阪府公安委員会
+        </td>
+      </tr>
+      <tr>
+        <th>受付時間</th>
+        <td>平日 8:00〜18:00</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ======================================================
+     アクセスマップ（横長・全幅）
+     ====================================================== -->
+<div style="width:100%;background:var(--gray-light);padding:40px 0 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px 16px;">
+    <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.15em;color:var(--orange);text-transform:uppercase;margin-bottom:6px;">ACCESS MAP</p>
+    <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:4px;">アクセス</h2>
+    <p style="font-size:0.85rem;color:var(--text-light);">〒584-0046 大阪府富田林市東板持町1丁目22-5</p>
+  </div>
+  <div style="width:100%;overflow:hidden;box-shadow:0 -4px 20px rgba(0,0,0,0.06);">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6565.0!2d135.6100!3d34.4893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600129000c5fae5d%3A0x8a15655b1811e165!2z77yI5pyJ77yJ6KW_5oGS44Kv44Oq44O844Oz!5e0!3m2!1sja!2sjp!4v1699000000000!5m2!1sja!2sjp"
+      width="100%"
+      height="420"
+      style="display:block;border:none;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="有限会社西恵クリーン アクセスマップ（富田林駅・川西駅周辺）">
+    </iframe>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:16px 24px 40px;text-align:center;">
+    <a
+      href="https://www.google.com/maps/place/(%E6%9C%89)%E8%A5%BF%E6%81%B5%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3/@34.489055,135.612268,17z/data=!3m1!4b1!4m6!3m5!1s0x600129000c5fae5d:0x8a15655b1811e165!8m2!3d34.489055!4d135.612268!16s%2Fg%2F11vysfcb43?hl=ja&entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-outline-orange"
+    >
+      Google マップで見る →
+    </a>
+  </div>
+</div>
+
+<!-- ======================================================
+     お問い合わせ
+     ====================================================== -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <p class="section-eyebrow">CONTACT</p>
+    <h2 class="section-title">お問い合わせ</h2>
+    <p class="section-lead">ご質問・お見積りのご依頼はお気軽にどうぞ。通常2営業日以内にご返信いたします。</p>
+
+    <div class="contact-inner">
+      <div class="contact-options">
+        <div class="contact-option">
+          <span class="contact-option-icon">📞</span>
+          <h3>お電話でのご相談</h3>
+          <p>お急ぎの方はお電話が便利です</p>
+          <p class="contact-tel-big"><a href="tel:0721697458">0721-69-7458</a></p>
+          <p style="font-size:0.75rem;color:var(--text-light);margin-top:6px;">平日 8:00〜18:00</p>
+        </div>
+        <div class="contact-option">
+          <span class="contact-option-icon">✉️</span>
+          <h3>メールでのご相談</h3>
+          <p>24時間受付・2営業日以内に返信</p>
+          <p style="font-size:0.85rem;color:var(--orange-dark);font-weight:700;">下記フォームよりご連絡ください</p>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>お名前<span class="req">必須</span></label>
+            <input type="text" name="name" placeholder="例：山田 太郎" required>
+          </div>
+          <div class="form-group">
+            <label>会社名・屋号</label>
+            <input type="text" name="company" placeholder="例：株式会社〇〇（個人の方は不要）">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>電話番号<span class="req">必須</span></label>
+            <input type="tel" name="tel" placeholder="例：0721-00-0000" required>
+          </div>
+          <div class="form-group">
+            <label>メールアドレス</label>
+            <input type="email" name="email" placeholder="例：sample@email.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ご希望のサービス</label>
+          <select name="service">
+            <option value="">選択してください</option>
+            <option>産業廃棄物収集運搬</option>
+            <option>遺品整理・生前整理</option>
+            <option>不用品回収</option>
+            <option>店舗解体工事</option>
+            <option>その他・複数のサービス</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>作業場所（都道府県・市区町村）</label>
+          <input type="text" name="location" placeholder="例：大阪府富田林市">
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ内容<span class="req">必須</span></label>
+          <textarea name="message" placeholder="ご質問・ご相談内容をご記入ください。&#10;&#10;例）解体現場から出たコンクリート殻・木くず等の処分をお願いしたい。&#10;　　〇月〇日頃に作業希望。" required></textarea>
+        </div>
+        <div class="form-group" style="flex-direction:row;align-items:flex-start;gap:12px;">
+          <input type="checkbox" id="privacy" name="privacy" required style="width:auto;margin-top:4px;">
+          <label for="privacy" style="font-size:0.85rem;font-weight:400;cursor:pointer;">
+            <a href="privacy.html" target="_blank" style="color:var(--orange-dark);text-decoration:underline;">個人情報保護方針</a>に同意のうえ送信します<span class="req">必須</span>
+          </label>
+        </div>
+        <button type="submit" class="form-submit">送信する　→</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="西恵クリーンロゴ3.png" alt="西恵クリーン" class="footer-logo">
+        <div class="footer-info">
+          <p>有限会社西恵クリーン</p>
+          <p>〒584-0046</p>
+          <p>大阪府富田林市東板持町1丁目22-5</p>
+          <p>TEL: 0721-69-7458</p>
+          <p>FAX: 0721-69-7459</p>
+          <p style="margin-top:10px;font-size:0.78rem;opacity:0.5;line-height:1.8;">
+            大阪府知事許可 第02710116316号<br>
+            兵庫県知事許可 第02803116316号
+          </p>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="services.html#industrial">産業廃棄物収集運搬業</a></li>
+            <li><a href="services.html#estate">遺品整理・生前整理</a></li>
+            <li><a href="services.html#junk">不用品回収</a></li>
+            <li><a href="services.html#demolition">店舗解体工事</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>会社情報</h4>
+          <ul>
+            <li><a href="flow-price.html">サービスの流れ＆料金表</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="privacy.html">個人情報保護方針</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 有限会社西恵クリーン All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">個人情報保護方針</a>
+        <a href="#contact">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 0);
+}, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+}));
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '送信中…';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ 送信が完了しました。ありがとうございます。';
+    btn.style.background = '#4CAF50';
+    e.target.reset();
+  }, 1400);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービスの流れ＆料金表 | 有限会社西恵クリーン</title>
+  <meta name="description" content="西恵クリーンのサービスの流れと料金表をご確認いただけます。産業廃棄物処理費用・遺品整理料金など。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .flow-full { background: var(--white); }
+    .flow-full-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      max-width: 740px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .flow-full-steps::before {
+      content: '';
+      position: absolute;
+      left: 36px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--orange) 0%, var(--orange-lighter) 100%);
+    }
+    .flow-full-step {
+      display: flex;
+      gap: 28px;
+      padding: 28px 0;
+      position: relative;
+    }
+    .flow-full-num {
+      flex-shrink: 0;
+      width: 72px; height: 72px;
+      background: var(--grad);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 900;
+      box-shadow: 0 4px 18px rgba(255,140,42,0.35);
+      position: relative;
+      z-index: 1;
+    }
+    .flow-full-body h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      padding-top: 18px;
+    }
+    .flow-full-body p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .flow-full-body .note {
+      display: inline-block;
+      background: var(--off-white);
+      border: 1px solid var(--orange-lighter);
+      color: var(--orange-darker);
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-top: 8px;
+    }
+
+    .price-section { padding: 72px 24px; }
+    .price-section:nth-child(odd)  { background: var(--off-white); }
+    .price-section:nth-child(even) { background: var(--white); }
+    .price-inner { max-width: 1000px; margin: 0 auto; }
+
+    .price-section-title {
+      font-size: 1.35rem;
+      color: var(--orange-darker);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--orange-lighter);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .extra-table { margin-top: 28px; }
+    .extra-table th { background: #555; }
+
+    /* === 遺品整理 カード型料金表 === */
+    .estate-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .estate-card {
+      border: 2px solid var(--gray);
+      border-radius: var(--radius);
+      padding: 24px 14px 20px;
+      position: relative;
+      background: var(--white);
+      text-align: center;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    .estate-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(255,140,42,0.14);
+    }
+    .estate-card.popular { border-color: var(--orange); border-width: 2px; }
+    .popular-badge {
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 900;
+      padding: 3px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+    .estate-card .room-type {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .estate-card .price-label-sm {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .estate-card .price-big {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--orange-darker);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .estate-card .price-big small { font-size: 1rem; }
+    .estate-card .estate-details {
+      list-style: none;
+      padding: 0;
+      border-top: 1px solid var(--gray);
+      padding-top: 12px;
+      text-align: left;
+    }
+    .estate-card .estate-details li {
+      font-size: 0.76rem;
+      color: var(--text-light);
+      padding: 3px 0;
+      padding-left: 12px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .estate-card .estate-details li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    /* オプションテーブル */
+    .option-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 36px 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gray);
+    }
+
+    /* ベネフィット */
+    .benefit-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .benefit-box {
+      background: #F0FBF0;
+      border: 2px solid #66BB6A;
+      border-radius: var(--radius-sm);
+      padding: 18px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .benefit-check {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      background: #4CAF50;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+    .benefit-box h4 { font-size: 0.9rem; margin-bottom: 4px; }
+    .benefit-box p { font-size: 0.78rem; color: var(--text-light); line-height: 1.65; margin: 0; }
+
+    /* estate 注記 */
+    .estate-notes {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      line-height: 2;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .estate-cards { grid-template-columns: 1fr 1fr; }
+      .benefit-boxes { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .estate-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html">
+    <img src="西恵クリーンロゴ3.png" alt="有限会社西恵クリーン" class="header-logo">
+  </a>
+  <nav class="nav">
+    <a href="services.html" class="nav-link">事業内容</a>
+    <a href="flow-price.html" class="nav-link" style="color:var(--orange);">料金・流れ</a>
+    <a href="company.html" class="nav-link">会社概要</a>
+    <a href="faq.html" class="nav-link">FAQ</a>
+    <a href="company.html#contact" class="nav-link nav-cta">お問い合わせ</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="services.html" class="mobile-nav-link">事業内容</a>
+  <a href="flow-price.html" class="mobile-nav-link">サービスの流れ＆料金表</a>
+  <a href="company.html" class="mobile-nav-link">会社概要</a>
+  <a href="company.html#contact" class="mobile-nav-link">お問い合わせ</a>
+  <a href="faq.html" class="mobile-nav-link">よくある質問</a>
+  <a href="privacy.html" class="mobile-nav-link">個人情報保護方針</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>サービスの流れ＆料金表</h1>
+  <p>ご依頼から完了までの流れと、各サービスの料金をご確認いただけます</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a> › <span>サービスの流れ＆料金表</span>
+  </div>
+</div>
+
+<!-- ======================================================
+     ご利用の流れ
+     ====================================================== -->
+<section class="section flow-full" id="flow">
+  <div class="section-inner">
+    <p class="section-eyebrow">HOW IT WORKS</p>
+    <h2 class="section-title">ご利用の<span>流れ</span></h2>
+    <p class="section-lead">お問い合わせから作業完了まで、スタッフが丁寧にサポートいたします。</p>
+
+    <div class="flow-full-steps">
+      <div class="flow-full-step">
+        <div class="flow-full-num">1</div>
+        <div class="flow-full-body">
+          <h3>📞 お問い合わせ</h3>
+          <p>お電話（0721-69-7458）またはメールフォームよりお気軽にご連絡ください。<br>サービス内容・作業場所・ご希望日程などをお伝えいただくとスムーズです。</p>
+          <span class="note">受付：平日 8:00〜18:00</span>
+        </div>
+      </div>
+      <div class="flow-full-step">
+        <div class="flow-full-num">2</div>
+        <div class="flow-full-body">
+          <h3>🔍 現地確認・無料お見積り</h3>
+          <p>スタッフが現地に伺い、廃棄物の種類・量・作業内容を確認します。<br>お見積りは無料です。後から追加料金が発生しないよう、事前にしっかりご説明いたします。</p>
+          <span class="note">お見積り無料</span>
+        </div>
+      </div>
+      <div class="flow-full-step">
+        <div class="flow-full-num">3</div>
+        <div class="flow-full-body">
+          <h3>✅ ご契約・日程確定</h3>
+          <p>お見積り内容・料金にご納得いただいてからご契約となります。<br>ご都合に合わせて作業日をご調整いたします。</p>
+        </div>
+      </div>
+      <div class="flow-full-step">
+        <div class="flow-full-num">4</div>
+        <div class="flow-full-body">
+          <h3>🚛 作業実施</h3>
+          <p>当日、経験豊富なスタッフが迅速・丁寧に作業を行います。<br>産業廃棄物については法令に従い適正に処理いたします。</p>
+        </div>
+      </div>
+      <div class="flow-full-step">
+        <div class="flow-full-num">5</div>
+        <div class="flow-full-body">
+          <h3>🎉 完了確認・お支払い</h3>
+          <p>作業完了後にお客様に仕上がりをご確認いただきます。<br>ご確認後にお支払いをお願いいたします。</p>
+          <span class="note">現金・振込対応</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     産業廃棄物 料金表
+     ====================================================== -->
+<section class="price-section" id="industrial-price">
+  <div class="price-inner">
+    <h2 class="price-section-title">🏗️ 産業廃棄物 処理費用</h2>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width:40px;"></th>
+          <th>廃棄品目</th>
+          <th>内容・条件</th>
+          <th style="text-align:right;">処理料金（/㎥）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">①</td>
+          <td>ボード</td>
+          <td>袋に入れる等の方法で他の混合廃棄物と分別されていることが条件</td>
+          <td class="price-amount">15,000円</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">②</td>
+          <td>サイディング</td>
+          <td>〃</td>
+          <td class="price-amount">13,000円</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">③</td>
+          <td>クロス</td>
+          <td>〃</td>
+          <td class="price-amount">10,000円</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">④</td>
+          <td>タイル</td>
+          <td>〃</td>
+          <td class="price-amount">12,000円</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">⑤</td>
+          <td>ガラス</td>
+          <td>〃</td>
+          <td class="price-amount">11,000円</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">⑥</td>
+          <td>FRP</td>
+          <td>〃</td>
+          <td class="price-amount">12,000円</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:700;color:var(--orange-dark);">⑦</td>
+          <td>タイルカーペット</td>
+          <td>〃</td>
+          <td class="price-amount">13,000円</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>混合廃棄物A</td>
+          <td>木くずや廃プラ・紙くずの土嚢袋内に①〜⑦の品目が混ざっていない状態</td>
+          <td class="price-amount">8,000円〜</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>混合廃棄物B</td>
+          <td>木くずや廃プラ・紙くずなどに①〜⑦が土嚢袋内に混入されていて分別されず仕分け困難な場合</td>
+          <td class="price-amount">12,000円〜</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>運搬費</td>
+          <td>大阪府内（一部大阪府内でも費用が異なる地域があります）</td>
+          <td class="price-amount">15,000円</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:32px 0 16px;font-size:1.05rem;color:var(--orange-darker);">別途料金について</h3>
+    <table class="price-table extra-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="white-space:nowrap;font-weight:700;">バッカン設置</td>
+          <td>
+            設置代金 10,000円。処理費用については廃材内容により異なるので確認してからの決定になります。<br>
+            <small style="color:var(--text-light);">バッカン設置後1ヶ月以上入替や引上げがない場合はバッカン使用料として10,000円/月を請求させていただきます。</small>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;">積込時間超過</td>
+          <td>積込み作業に1時間以上かかった場合は別途料金を請求させていただきます。</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;">遠方料金</td>
+          <td>地域により異なります。事前にお問合せください。</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700;">当社積み</td>
+          <td>積込みのお手伝いが頂けない場合（量により人数が異なるため事前にお知らせ頂いた場合のみお引受けいたします）<br>積込作業代：1人 × 15,000円</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box" style="margin-top:24px;">
+      日曜・祝日および深夜・早朝は別途料金が発生します。事前にお問合せください。<br>
+      テレビ・冷蔵庫・洗濯機・スプリング入りマットレス・畳 は別途料金です。大きさにより料金が変わります。
+    </div>
+    <div class="note-box">
+      スレート（アスベスト）・塗料・液体ゴミは一切お引受けいたしません。<br>
+      何らかの手違いで混入された場合は別途料金を頂戴いたします。
+    </div>
+    <div class="note-box">
+      当社に解体工事をご依頼いただいている業者様に関しましてはこの限りではありません。<br>
+      特別価格にて処理させていただきますのでお気軽にご相談ください。
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     遺品整理 料金表
+     ====================================================== -->
+<section class="price-section" id="estate-price">
+  <div class="price-inner">
+    <div style="margin-bottom:10px;">
+      <span style="background:var(--orange);color:var(--white);font-size:0.72rem;font-weight:900;padding:4px 16px;border-radius:50px;letter-spacing:0.1em;">SERVICE 03</span>
+    </div>
+    <h2 class="price-section-title" style="border:none;padding:0;margin-bottom:10px;">🏡 遺品整理</h2>
+    <p style="font-size:0.87rem;color:var(--text-light);margin-bottom:28px;line-height:1.8;">
+      遺品整理の料金は、お部屋の広さ・荷物の量・作業内容によって変わります。下記は一般的な目安です。現地確認後に正確なお見積もりをご提示いたします。
+    </p>
+
+    <!-- 料金カード -->
+    <div class="estate-cards">
+      <div class="estate-card">
+        <h3 class="room-type">1K</h3>
+        <p class="price-label-sm">基本料金</p>
+        <p class="price-big">30,000<small>円〜</small></p>
+        <ul class="estate-details">
+          <li>荷物が少ない場合</li>
+          <li>作業期間：半日〜1日程度</li>
+          <li>スタッフ1〜2名</li>
+        </ul>
+      </div>
+      <div class="estate-card popular">
+        <span class="popular-badge">人気</span>
+        <h3 class="room-type">1LDK</h3>
+        <p class="price-label-sm">基本料金</p>
+        <p class="price-big">80,000<small>円〜</small></p>
+        <ul class="estate-details">
+          <li>一般的な遺品量の場合</li>
+          <li>作業期間：1〜2日程度</li>
+          <li>スタッフ2〜3名</li>
+        </ul>
+      </div>
+      <div class="estate-card">
+        <h3 class="room-type">2LDK</h3>
+        <p class="price-label-sm">基本料金</p>
+        <p class="price-big">120,000<small>円〜</small></p>
+        <ul class="estate-details">
+          <li>荷物が多い場合</li>
+          <li>作業期間：2〜3日程度</li>
+          <li>スタッフ3〜4名</li>
+        </ul>
+      </div>
+      <div class="estate-card">
+        <h3 class="room-type">3LDK</h3>
+        <p class="price-label-sm">基本料金</p>
+        <p class="price-big">170,000<small>円〜</small></p>
+        <ul class="estate-details">
+          <li>大型物件・大量荷物</li>
+          <li>作業期間：3日以上</li>
+          <li>スタッフ4名以上</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- オプションサービス -->
+    <p class="option-heading">オプションサービス</p>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>サービス</th>
+          <th>料金目安</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>買取・査定</td>
+          <td style="color:#4CAF50;font-weight:700;">無料</td>
+          <td>リサイクル可能品は買取で費用相殺</td>
+        </tr>
+        <tr>
+          <td>ハウスクリーニング</td>
+          <td>別途お見積もり</td>
+          <td>退去・賃貸返却時に対応</td>
+        </tr>
+        <tr>
+          <td>特殊清掃</td>
+          <td>別途お見積もり</td>
+          <td>孤独死・事故・臭気除去など</td>
+        </tr>
+        <tr>
+          <td>遺品供養</td>
+          <td>別途お見積もり</td>
+          <td>提携寺院にてご手配</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ベネフィット -->
+    <div class="benefit-boxes">
+      <div class="benefit-box">
+        <div class="benefit-check">✓</div>
+        <div>
+          <h4>買取で費用を軽減</h4>
+          <p>不用品の中から価値あるものを査定・買取、作業費用から相殺いたします</p>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <div class="benefit-check">✓</div>
+        <div>
+          <h4>追加費用なし</h4>
+          <p>お見積もり後の追加費用は発生しません。明確な料金でご安心ください</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 注記 -->
+    <p class="estate-notes">
+      ※ 記載料金はすべて目安です。実際の料金は現地確認後にお知らせいたします。<br>
+      ※ 料金には消費税が別途かかります。<br>
+      ※ 遠方・繁忙・特殊な条件の場合は別途ご相談ください。
+    </p>
+  </div>
+</section>
+
+<!-- ======================================================
+     不用品回収・店舗解体
+     ====================================================== -->
+<section class="price-section">
+  <div class="price-inner">
+    <h2 class="price-section-title">♻️ 不用品回収 ／ 🏢 店舗解体工事</h2>
+    <p style="font-size:0.92rem;color:var(--text-light);margin-bottom:24px;">
+      不用品回収・店舗解体工事については、内容・量・現場状況により料金が大きく異なります。<br>
+      現地確認のうえ、無料でお見積りいたします。お気軽にお問い合わせください。
+    </p>
+    <div class="note-box">
+      テレビ・冷蔵庫・洗濯機・スプリング入りマットレス・畳は別途料金が発生します（大きさにより異なります）。<br>
+      日曜・祝日・深夜・早朝は別途料金が発生する場合があります。事前にご確認ください。
+    </div>
+    <div class="text-center mt-32">
+      <a href="company.html#contact" class="btn btn-primary">お見積りはこちら（無料）</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>お見積り・ご相談は無料です</h2>
+  <p>まずはお電話またはメールフォームよりお気軽にご連絡ください</p>
+  <p class="cta-tel"><a href="tel:0721697458">📞 0721-69-7458</a></p>
+  <p class="cta-hours">受付時間：平日 8:00〜18:00</p>
+  <div class="cta-buttons">
+    <a href="company.html#contact" class="btn btn-outline-white">メールで問い合わせる</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="西恵クリーンロゴ3.png" alt="西恵クリーン" class="footer-logo">
+        <div class="footer-info">
+          <p>有限会社西恵クリーン</p>
+          <p>〒584-0046</p>
+          <p>大阪府富田林市東板持町1丁目22-5</p>
+          <p>TEL: 0721-69-7458</p>
+          <p>FAX: 0721-69-7459</p>
+          <p style="margin-top:10px;font-size:0.78rem;opacity:0.5;line-height:1.8;">
+            大阪府知事許可 第02710116316号<br>
+            兵庫県知事許可 第02803116316号
+          </p>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="services.html#industrial">産業廃棄物収集運搬業</a></li>
+            <li><a href="services.html#estate">遺品整理・生前整理</a></li>
+            <li><a href="services.html#junk">不用品回収</a></li>
+            <li><a href="services.html#demolition">店舗解体工事</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>会社情報</h4>
+          <ul>
+            <li><a href="flow-price.html">サービスの流れ＆料金表</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="company.html#contact">お問い合わせ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="privacy.html">個人情報保護方針</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 有限会社西恵クリーン All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">個人情報保護方針</a>
+        <a href="company.html#contact">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 0);
+}, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+}));
+</script>
+</body>
+</html>

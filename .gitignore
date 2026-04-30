@@ -1,0 +1,17 @@
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# OneDrive
+*.tmp
+~$*
+
+# macOS
+.DS_Store
+
+# Claude Code internal
+.claude/
+
+# PDF（公開不要）
+*.pdf

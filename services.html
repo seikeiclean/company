@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事業内容 | 有限会社西恵クリーン</title>
+  <meta name="description" content="産業廃棄物収集運搬業・遺品整理／生前整理・不用品回収・店舗解体工事のサービス詳細ページです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .service-detail { padding: 72px 24px; }
+    .service-detail:nth-child(even) { background: var(--gray-light); }
+    .service-detail:nth-child(odd)  { background: var(--white); }
+
+    .detail-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .detail-inner.reverse { direction: rtl; }
+    .detail-inner.reverse > * { direction: ltr; }
+
+    .detail-icon-wrap {
+      border-radius: var(--radius);
+      min-height: 300px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+    .detail-icon-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s ease;
+    }
+    .detail-icon-wrap:hover img {
+      transform: scale(1.04);
+    }
+    /* 産業廃棄物は写真なしのためグラデーション維持 */
+    .detail-icon-wrap.no-photo {
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+    }
+    .detail-icon-wrap.no-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .detail-content h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 6px;
+    }
+    .detail-content h2 span { color: var(--orange); }
+    .detail-content .tag { margin-bottom: 16px; }
+    .detail-content p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .detail-list { margin-bottom: 28px; }
+    .detail-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray);
+    }
+    .detail-list li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .detail-list li:last-child { border-bottom: none; }
+
+    .permit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange-lighter);
+      color: var(--orange-darker);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .detail-inner { grid-template-columns: 1fr; gap: 28px; }
+      .detail-inner.reverse { direction: ltr; }
+      .detail-icon-wrap { min-height: 180px; font-size: 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header scrolled" id="header">
+  <a href="index.html">
+    <img src="西恵クリーンロゴ3.png" alt="有限会社西恵クリーン" class="header-logo">
+  </a>
+  <nav class="nav">
+    <a href="services.html" class="nav-link" style="color:var(--orange);">事業内容</a>
+    <a href="flow-price.html" class="nav-link">料金・流れ</a>
+    <a href="company.html" class="nav-link">会社概要</a>
+    <a href="faq.html" class="nav-link">FAQ</a>
+    <a href="company.html#contact" class="nav-link nav-cta">お問い合わせ</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="services.html" class="mobile-nav-link">事業内容</a>
+  <a href="flow-price.html" class="mobile-nav-link">サービスの流れ＆料金表</a>
+  <a href="company.html" class="mobile-nav-link">会社概要</a>
+  <a href="company.html#contact" class="mobile-nav-link">お問い合わせ</a>
+  <a href="faq.html" class="mobile-nav-link">よくある質問</a>
+  <a href="privacy.html" class="mobile-nav-link">個人情報保護方針</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>事業内容</h1>
+  <p>産業廃棄物収集運搬から店舗解体まで、幅広いサービスをご提供</p>
+  <div class="breadcrumb">
+    <a href="index.html">TOP</a> › <span>事業内容</span>
+  </div>
+</div>
+
+<!-- ======================================================
+     産業廃棄物収集運搬業
+     ====================================================== -->
+<section class="service-detail" id="industrial">
+  <div class="detail-inner">
+    <div class="detail-icon-wrap">
+      <img src="img/産業廃棄物収集運搬業１.png" alt="産業廃棄物収集運搬業の作業現場">
+    </div>
+    <div class="detail-content">
+      <span class="tag">INDUSTRIAL WASTE</span>
+      <h2>産業廃棄物<br><span>収集運搬業</span></h2>
+      <div class="permit-badge">
+        🏛️ 大阪府・兵庫県知事許可取得済み
+      </div>
+      <p>建設現場・解体現場・リフォーム現場などから発生する産業廃棄物を、法令に従い適正に収集・運搬いたします。大阪府・兵庫県の許可を取得しており、安心してお任せいただけます。</p>
+      <p>当社に解体工事をご依頼いただいている業者様には特別価格にて対応いたします。お気軽にご相談ください。</p>
+      <ul class="detail-list">
+        <li>コンクリート殻・アスファルト殻</li>
+        <li>木くず・プラスチック類</li>
+        <li>金属くず・ガラスくず</li>
+        <li>ボード・サイディング・タイル・FRP</li>
+        <li>タイルカーペット・クロス類</li>
+        <li>工場・製造業から出る廃プラスチック・金属くず</li>
+      </ul>
+      <div class="note-box">
+        ※ スレート（アスベスト）・塗料・液体ゴミは一切お引受けいたしません。<br>
+        何らかの手違いで混入された場合は別途料金をいただきます。
+      </div>
+      <a href="flow-price.html#industrial-price" class="btn btn-primary">料金表を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     遺品整理 / 生前整理
+     ====================================================== -->
+<section class="service-detail" id="estate">
+  <div class="detail-inner reverse">
+    <div class="detail-icon-wrap">
+      <img src="img/遺品整理.png" alt="遺品整理の作業風景">
+    </div>
+    <div class="detail-content">
+      <span class="tag">ESTATE CLEARANCE</span>
+      <h2>遺品整理<br><span>生前整理</span></h2>
+      <p>故人が残された品々を丁寧に整理・処分いたします。大切な思い出の品は分けてご保管いただけるよう、ご遺族のご希望に寄り添いながら作業を進めます。</p>
+      <p>生前整理にも対応しており、ご本人がお元気なうちに身の回りを整えるお手伝いもいたします。不用品の買取・リサイクルも行い、できる限りお客様のご負担を軽減いたします。</p>
+      <ul class="detail-list">
+        <li>遺品整理（お部屋全体の整理・処分）</li>
+        <li>生前整理（終活サポート）</li>
+        <li>仕分け・梱包・搬出作業</li>
+        <li>貴重品・形見の品の保護</li>
+        <li>不用品の買取・リサイクル対応</li>
+        <li>ハウスクリーニングのご紹介</li>
+      </ul>
+      <div class="note-box">
+        基本料金は 1K：30,000円〜 ／ 1LDK：80,000円〜 ／ 2LDK：120,000円〜 ／ 3LDK：170,000円〜<br>
+        内容により異なりますので、まずは無料お見積りをご依頼ください。
+      </div>
+      <a href="flow-price.html#estate-price" class="btn btn-primary">料金表を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     不用品回収
+     ====================================================== -->
+<section class="service-detail" id="junk">
+  <div class="detail-inner">
+    <div class="detail-icon-wrap">
+      <img src="img/不用品回収 (2).png" alt="不用品回収の作業風景">
+    </div>
+    <div class="detail-content">
+      <span class="tag">JUNK REMOVAL</span>
+      <h2>不用品<span>回収</span></h2>
+      <p>家庭から出る不用品を丸ごと回収いたします。一点からでも、お部屋まるごとでもご対応可能。粗大ゴミの自治体申込みが面倒な方もぜひご相談ください。</p>
+      <ul class="detail-list">
+        <li>家具（ソファ・タンス・ベッドなど）の回収・処分</li>
+        <li>家電（テレビ・冷蔵庫・洗濯機など）の回収・処分</li>
+        <li>粗大ゴミの回収・処分</li>
+        <li>引越し時の不用品一括回収</li>
+        <li>ゴミ屋敷の片付け</li>
+      </ul>
+      <div class="warn-box">
+        テレビ・冷蔵庫・洗濯機・スプリング入りマットレス・畳は別途料金が発生します。<br>
+        大きさにより料金が変わりますので事前にお問い合わせください。
+      </div>
+      <a href="company.html#contact" class="btn btn-primary">無料お見積りを依頼する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     店舗解体工事
+     ====================================================== -->
+<section class="service-detail" id="demolition">
+  <div class="detail-inner reverse">
+    <div class="detail-icon-wrap">
+      <img src="img/店舗解体工事.png" alt="店舗解体工事の作業風景">
+    </div>
+    <div class="detail-content">
+      <span class="tag">DEMOLITION</span>
+      <h2>店舗<span>解体工事</span></h2>
+      <p>テナントの退去・原状回復から、店舗のフルスケルトン解体まで対応いたします。リフォームや増改築に伴う部分解体も承っており、施工後の廃棄物処理まで一貫してお任せいただけます。</p>
+      <ul class="detail-list">
+        <li>スケルトン解体（店舗・テナント内装全撤去）</li>
+        <li>原状回復工事（退去時の内装復旧）</li>
+        <li>部分解体（リフォーム・増改築・リニューアル）</li>
+        <li>解体後の廃棄物収集・運搬・処分</li>
+        <li>工事後のクリーニング対応</li>
+      </ul>
+      <div class="note-box">
+        当社に解体工事をご依頼の業者様は廃棄物の処理費用について特別価格でご対応いたします。詳しくはお問い合わせください。
+      </div>
+      <a href="company.html#contact" class="btn btn-primary">工事のご相談はこちら</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>まずはお気軽にご相談ください</h2>
+  <p>お見積り無料・現地確認のうえ丁寧にご提案いたします</p>
+  <p class="cta-tel"><a href="tel:0721697458">📞 0721-69-7458</a></p>
+  <p class="cta-hours">受付時間：平日 8:00〜18:00</p>
+  <div class="cta-buttons">
+    <a href="company.html#contact" class="btn btn-outline-white">メールで問い合わせる</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="西恵クリーンロゴ3.png" alt="西恵クリーン" class="footer-logo">
+        <div class="footer-info">
+          <p>有限会社西恵クリーン</p>
+          <p>〒584-0046</p>
+          <p>大阪府富田林市東板持町1丁目22-5</p>
+          <p>TEL: 0721-69-7458</p>
+          <p>FAX: 0721-69-7459</p>
+          <p style="margin-top:10px;font-size:0.78rem;opacity:0.5;line-height:1.8;">
+            大阪府知事許可 第02710116316号<br>
+            兵庫県知事許可 第02803116316号
+          </p>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="#industrial">産業廃棄物収集運搬業</a></li>
+            <li><a href="#estate">遺品整理・生前整理</a></li>
+            <li><a href="#junk">不用品回収</a></li>
+            <li><a href="#demolition">店舗解体工事</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>会社情報</h4>
+          <ul>
+            <li><a href="flow-price.html">サービスの流れ＆料金表</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="company.html#contact">お問い合わせ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="privacy.html">個人情報保護方針</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 有限会社西恵クリーン All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">個人情報保護方針</a>
+        <a href="company.html#contact">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 0);
+}, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  mobileNav.classList.remove('open');
+}));
+</script>
+</body>
+</html>
